@@ -1,1 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="description" content="Aplicación web con paleta pastel">
+    <meta name="author" content="Tu Nombre">
+    <title>Mi App Pastel | Esqueleto</title>
+    <style>
+        /* Paleta de colores pastel */
+        :root {
+            --pastel-rosa: #F9E7E7;      /* rosa muy suave */
+            --pastel-azul: #E0F2FE;      /* azul cielo */
+            --pastel-menta: #D1FAE5;     /* menta clara */
+            --pastel-lavanda: #E9D5FF;   /* lavanda */
+            --pastel-amarillo: #FEF9C3;  /* amarillo pálido */
+            --texto-oscuro: #334155;     /* gris pizarra oscuro (suave) */
+            --texto-suave: #475569;      /* gris pizarra medio */
+            --blanco: #FFFFFF;
+            --sombra: 0 4px 6px -2px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+            background-color: var(--pastel-rosa);
+            color: var(--texto-oscuro);
+            line-height: 1.5;
+            padding: 1rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Contenedor principal para centrar contenido */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+        }
+
+        /* Header y navegación */
+        header {
+            background-color: var(--blanco);
+            border-radius: 1.5rem;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--sombra);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--pastel-azul);
+            padding-bottom: 0.75rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-weight: 500;
+            color: var(--texto-oscuro);
+            transition: color 0.2s ease;
+            padding: 0.25rem 0;
+        }
+
+        nav a:hover {
+            color: #7C3AED; /* un púrpura pastel más intenso para contraste */
+            border-bottom: 2px solid var(--pastel-lavanda);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #2D6A4F, #1E6091);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-top: 0.5rem;
+        }
+
+        /* Main con dos columnas flexibles */
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        section {
+            flex: 2;
+            background-color: var(--pastel-azul);
+            padding: 1.5rem;
+            border-radius: 1.5rem;
+            box-shadow: var(--sombra);
+            transition: transform 0.1s ease;
+        }
+
+        aside {
+            flex: 1;
+            background-color: var(--pastel-lavanda);
+            padding: 1.5rem;
+            border-radius: 1.5rem;
+            box-shadow: var(--sombra);
+        }
+
+        h2, h3 {
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            color: #1E3A5F;
+            border-left: 5px solid var(--pastel-menta);
+            padding-left: 0.75rem;
+        }
+
+        h3 {
+            color: #4C1D95;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--texto-suave);
+        }
+
+        button {
+            background-color: var(--pastel-menta);
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 2rem;
+            font-weight: 500;
+            color: #0F3B2C;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: var(--sombra);
+            font-size: 0.9rem;
+        }
+
+        button:hover {
+            background-color: #A7F3D0; /* menta un poco más intensa */
+            transform: scale(1.02);
+        }
+
+        footer {
+            background-color: var(--pastel-amarillo);
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 1.5rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--texto-suave);
+            box-shadow: var(--sombra);
+        }
+
+        footer a {
+            color: #6D28D9;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 0.5rem;
+            }
+            header {
+                padding: 1rem;
+            }
+            nav ul {
+                gap: 1rem;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+            main {
+                flex-direction: column;
+            }
+        }
+
+        /* Botón de ejemplo con efecto */
+        .btn-ejemplo {
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Acerca</a></li>
+                <li><a href="#">Servicios</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+        <h1>✨ Bienvenido a Mi App Pastel ✨</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Sección principal</h2>
+            <p>Esta es la zona de contenido principal. Los colores pastel crean una experiencia visual suave y amigable. Puedes insertar aquí formularios, tarjetas, gráficos o cualquier elemento interactivo.</p>
+            <p>La paleta incluye <strong>rosa (#F9E7E7)</strong>, <strong>azul cielo (#E0F2FE)</strong>, <strong>menta (#D1FAE5)</strong>, <strong>lavanda (#E9D5FF)</strong> y <strong>amarillo pálido (#FEF9C3)</strong>.</p>
+            <button id="miBoton" class="btn-ejemplo">💫 Haz clic y sorpréndete</button>
+        </section>
+        <aside>
+            <h3>🌿 Dato adicional</h3>
+            <p>Los colores pastel transmiten calma, creatividad y modernidad. Son ideales para aplicaciones de bienestar, lifestyle, educación o portafolios.</p>
+            <p>También puedes personalizar las variables CSS en <code>:root</code> para cambiar toda la paleta al instante.</p>
+        </aside>
+    </main>
+
+    <footer>
+        <p>© 2025 - Tu Nombre o Empresa. Hecho con 🎨 colores pastel.</p>
+        <p><a href="https://github.com/tuusuario" target="_blank" rel="noopener noreferrer">GitHub</a> | <a href="#">Política de privacidad</a></p>
+    </footer>
+</div>
+
+<script>
+    // Pequeña interacción para el botón (ejemplo)
+    const boton = document.getElementById('miBoton');
+    if (boton) {
+        boton.addEventListener('click', () => {
+            alert('¡Hola! Esto es una alerta pastel 🧁');
+        });
+    }
+</script>
+</body>
+</html>
